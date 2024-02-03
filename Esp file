@@ -1,0 +1,40 @@
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+
+local ESPEnabled = true
+local ItemColor = Color3.new(1, 1, 0) -- Amarelo
+
+
+local function CreateESP(money printer)
+    local esp = Instance.new("BoxHandleAdornment")
+    esp.Size = item.Size + Vector3.new(0.2, 0.2, 0.2)
+    esp.Color3 = ItemColor
+    esp.Transparency = 0.5
+    esp.AlwaysOnTop = true
+    esp.Adornee = item
+    esp.Parent = item
+end
+
+
+local function UpdateESP()
+    if not ESPEnabled then
+        return
+    end
+
+    for _, item in pairs(workspace:GetChildren()) do
+        if item:IsA("Part") and item.Name == "Item" then
+            CreateESP(money printer, asval, RPG,scar)
+        end
+    end
+end
+
+RunService.RenderStepped:Connect(UpdateESP)
+
+
+ESPEnabled = true
+UpdateESP()
+
+print("ESP ativado para itens no mapa!")
+
